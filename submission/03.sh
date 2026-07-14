@@ -16,7 +16,7 @@ message="btrust builder 2026"
 
 message_hex=$(echo -n "$message" | xxd -p -c 256)
 
-outputs='''{ "data": "'$op_return_data'", "'$changeaddress'": 0.0146 }'''
+outputs='''{ "data": "'$message_hex'", "'$recipient'": 0.20000000 }'''
 
 rawtx=$(bitcoin-cli -regtest -named createrawtransaction inputs="$inputs" outputs="$outputs")
 
